@@ -6,7 +6,7 @@
     <input type="text" name="name" placeholder="Type your name">
     <input type="email" name="email" placeholder="Type your email">
     <input type="password" name="password" placeholder="Type your Password">
-    <input type="submit" value="submit">
+    <input type="submit" name="submit" value="submit"> <!-- Added name="submit" attribute -->
 
 </form>
 
@@ -17,25 +17,19 @@ if (isset($_REQUEST['passMessage'])){
 }
 
 function passwordGenerator() {
-        $all_keys = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_=+[]{}|\\:;,<>.?';
-        $str = '';
-        $final_length = rand(5, 10);
-    
-        for ($i = 0; $i < $final_length; $i++) {
-            $str .= $all_keys[rand(0, strlen($all_keys) - 1)];
-        }
-        return $str;
+    $all_keys = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_=+[]{}|\\:;,<>.?';
+    $str = '';
+    $final_length = rand(5, 10);
+
+    for ($i = 0; $i < $final_length; $i++) {
+        $str .= $all_keys[rand(0, strlen($all_keys) - 1)];
     }
-    
-$randomGeneratedPassword=passwordGenerator();
+    return $str;
+}
 
-echo "You can use the following password to login- <br><br> <b>{$randomGeneratedPassword}</b><br>"
+$randomGeneratedPassword = passwordGenerator();
 
-
-
-
-
-
+echo "You can use the following password to login- <br><br> <b>{$randomGeneratedPassword}</b><br>";
 ?>
 
 </body>

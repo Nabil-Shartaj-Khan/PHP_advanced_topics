@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (isset($_SESSION["name"]) && isset($_SESSION["password"])) {
+    $username = $_SESSION["name"];
+    $password = $_SESSION["password"];
+
+    echo "<h2>Welcome {$_SESSION["name"]} to the page </h2>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,5 +17,17 @@
 <body>
     <h1 style="text-align:center">You are here means you passed the password test</h1>
     <p style="text-align:center">Welcome to this page. Congratulations.</p>
+
+    <form action="homepage.php" method="post" id='form'>
+    <label>Logout here</label><br>
+    <input type="submit" name="logout" value="logout" class="logout-button">
+</form>
 </body>
 </html>
+
+<?php
+if (isset($_POST['logout'])) {
+    session_destroy();
+    header('location: index.php');
+}
+?>
