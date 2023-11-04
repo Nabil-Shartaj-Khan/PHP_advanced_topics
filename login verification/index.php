@@ -11,7 +11,31 @@
 </form>
 
 <?php
-echo $_REQUEST['passMessage']
+
+if (isset($_REQUEST['passMessage'])){
+    echo $_REQUEST['passMessage'];
+}
+
+function passwordGenerator() {
+        $all_keys = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_=+[]{}|\\:;,<>.?';
+        $str = '';
+        $final_length = rand(5, 10);
+    
+        for ($i = 0; $i < $final_length; $i++) {
+            $str .= $all_keys[rand(0, strlen($all_keys) - 1)];
+        }
+        return $str;
+    }
+    
+$randomGeneratedPassword=passwordGenerator();
+
+echo "You can use the following password to login- <br><br> <b>{$randomGeneratedPassword}</b><br>"
+
+
+
+
+
+
 ?>
 
 </body>
