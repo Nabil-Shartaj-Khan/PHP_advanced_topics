@@ -1,4 +1,5 @@
 <?php
+require_once 'database.php';
 session_start();
 require "index.php";
 
@@ -9,15 +10,14 @@ if (isset($_POST['submit'])) {
         $password = $_POST['password'];
         $passLen = strlen($password);
 
-        if ($passLen >= 5 && $passLen <= 10) {
+        if ($passLen >= 4 && $passLen <= 14) {
             $_SESSION["name"] = $username;
             $_SESSION["password"] = $password;
             $_SESSION["email"] = $email;
 
             header("location: homepage.php");
         } else {
-            $generatedPassword = passwordGenerator(); // Generate the password
-            header("location: index.php?passMessage=Password must be 5 to 10 characters. Your length was $passLen. <br> You can use the following password- <br> <b>$generatedPassword</b><br>");
+            header("location: index.php?passMessage=Password must be 5 to 10 characters. Your length was $passLen.");
         }
     } else {
         echo "Please provide all the information";

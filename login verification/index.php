@@ -1,3 +1,22 @@
+<?php
+require_once 'database.php';
+
+if (isset($_POST['submit'])){
+    $username = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $user_query=  "INSERT INTO users (`user`, `password`, `email`) VALUES ( '$username', '$password', '$email')";
+
+    $result=mysqli_query($connection,$user_query);
+
+    if (!$result){
+        die ("Not successful");
+    }
+}
+
+?>
+
+
 <html>
 <body>
 <h2>Verify login</h2>
