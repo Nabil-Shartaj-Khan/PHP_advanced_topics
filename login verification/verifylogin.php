@@ -12,6 +12,8 @@ if (isset($_POST['submit'])) {
         if ($passLen >= 5 && $passLen <= 10) {
             $_SESSION["name"] = $username;
             $_SESSION["password"] = $password;
+            $_SESSION["email"] = $email;
+
             header("location: homepage.php");
         } else {
             $generatedPassword = passwordGenerator(); // Generate the password

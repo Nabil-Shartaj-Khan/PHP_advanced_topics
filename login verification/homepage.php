@@ -3,8 +3,10 @@ session_start();
 if (isset($_SESSION["name"]) && isset($_SESSION["password"])) {
     $username = $_SESSION["name"];
     $password = $_SESSION["password"];
+    $email=$_SESSION['email'];
 
-    echo "<h2>Welcome {$_SESSION["name"]} to the page </h2>";
+    echo "<h2>Welcome {$username} to the page </h2>";
+    echo "Your email is {$email}";
 }
 ?>
 <!DOCTYPE html>
