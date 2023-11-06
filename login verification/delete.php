@@ -8,7 +8,6 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($connection, $delete_query);
 
     if ($result) {
-        
         header('location: showprofile.php');
         exit();
     } else {
