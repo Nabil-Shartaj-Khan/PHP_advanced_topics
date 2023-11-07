@@ -10,14 +10,14 @@ if (isset($_POST['submit'])) {
         $password = $_POST['password'];
         $passLen = strlen($password);
 
-        if ($passLen >= 4 && $passLen <= 14) {
+        if ($passLen >= 4 && $passLen <= 15) {
             $_SESSION["name"] = $username;
             $_SESSION["password"] = $password;
             $_SESSION["email"] = $email;
 
             header("location: homepage.php");
         } else {
-            header("location: index.php?passMessage=Password must be 5 to 10 characters. Your length was $passLen.");
+            header("location: index.php?passMessage=Password must be 4 to 15 characters. Your length was $passLen.");
         }
     } else {
         echo "Please provide all the information";

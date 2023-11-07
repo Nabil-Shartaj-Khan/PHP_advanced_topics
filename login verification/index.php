@@ -5,6 +5,7 @@ if (isset($_POST['submit'])){
     $username = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $password=password_hash($password,PASSWORD_DEFAULT);
     $user_query=  "INSERT INTO users (`user`, `password`, `email`) VALUES ( '$username', '$password', '$email')";
 
     $result=mysqli_query($connection,$user_query);
@@ -25,7 +26,7 @@ if (isset($_POST['submit'])){
     <input type="text" name="name" placeholder="Type your name">
     <input type="email" name="email" placeholder="Type your email">
     <input type="password" name="password" placeholder="Type your Password">
-    <input type="submit" name="submit" value="submit"> <!-- Added name="submit" attribute -->
+    <input type="submit" name="submit" value="submit"> 
 
 </form>
 
