@@ -4,4 +4,5 @@ Added till now-
 2. PHP password verification using loop and session
 
 
+PHP,HTML,MYSQL are used.
 **No CSS is used**
