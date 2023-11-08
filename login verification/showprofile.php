@@ -50,7 +50,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["password"])) {
             echo '<td>' . $generated_row['email'] . '</td>';
             echo '<td>' . $generated_row['gender'] . '</td>';
             echo '<td>' . $generated_row['country'] . '</td>';
-            echo '<td> <a href="editform.php?edit_data=' . $generated_row['user_id'] . '" onclick="return confirm(\'Are you sure?\')">Edit data</a> || <a href="delete.php?id=' . $generated_row['user_id'] . '">Delete</a></td>';
+            echo '<td> <a href="editform.php?edit_data=' . $generated_row['user_id'] . '" onclick="return confirm(\'Are you sure?\')">Edit data</a> || <a href="delete.php?id=' . $generated_row['user_id'] . '"onclick="return confirm(\'Are you sure?\')">Delete</a></td>';
 
        
             echo '</tr>';

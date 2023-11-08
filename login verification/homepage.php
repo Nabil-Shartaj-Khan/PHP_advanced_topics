@@ -34,7 +34,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["password"])) {
 <?php
 if (isset($_POST['logout'])) {
     session_destroy();
-    header('location: index.php');
+    header('location: landing.php');
 }
 
 if (isset($_POST['profile'])) {
