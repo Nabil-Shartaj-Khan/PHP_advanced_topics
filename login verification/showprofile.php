@@ -1,7 +1,6 @@
 <?php
 require_once 'database.php';
 session_start();
-
 ?>
 
 <h2 style="text-align: center;">Upload your profile picture </h2>
@@ -26,15 +25,14 @@ session_start();
     <form action="searchuser.php" method='post'>
     <input type="text" name="search" placeholder="Type your name">
     <input type="submit" name="search_value" value="Search">
-    </form>
-
-
+    
+   <br><br> <strong> You can<a href="logout.php"> Logout </a>here.</strong>
 
 <?php
 
-if (isset($_SESSION["name"]) && isset($_SESSION["password"])) {
-    $username = $_SESSION["name"];
-    $email = $_SESSION['email'];  
+if (isset($_SESSION["email"]) && isset($_SESSION["password"])) {
+    $email = $_SESSION["email"];
+    $password = $_SESSION['email'];  
 
     $user_query = "SELECT * FROM `users`";
     $show_user = mysqli_query($connection, $user_query);
@@ -56,9 +54,14 @@ if (isset($_SESSION["name"]) && isset($_SESSION["password"])) {
 
        
             echo '</tr>';
+            
         }
         echo '</table>';
+
+    
     }
-}
+
+    }
+
 
 ?>

@@ -2,12 +2,13 @@
 require_once 'database.php';
 session_start();
 
-if (isset($_SESSION["name"]) && isset($_SESSION["password"])) {
-    $username = $_SESSION["name"];
-    $email = $_SESSION['email'];
-
-    echo "<h2>Welcome {$username} to the page </h2>";
-    echo "Your email is {$email}";
+if (isset($_SESSION["email"]) && isset($_SESSION["password"])) {
+    
+    $email = $_SESSION["email"];
+    $password = $_SESSION['password'];
+    $pass_message = "LOGIN successful";
+    echo $pass_message;
+    echo "<br><br> Your email is {$email}";
 }
 ?>
 
@@ -23,9 +24,9 @@ if (isset($_SESSION["name"]) && isset($_SESSION["password"])) {
     <p style="text-align:center">Welcome to this page. Congratulations.</p>
 
     <form action="homepage.php" method="post" id='form'>
-    <label>Logout here</label><br>
+    <label>Logout here or checkout your profile page</label><br>
     <input type="submit" name="logout" value="logout" class="logout-button">
-    <input type="submit" name="profile" value="profile" class="logout-button">
+    <input type="submit" name="profile" value="profile" class="profile">
 </form>
 </body>
 </html>
