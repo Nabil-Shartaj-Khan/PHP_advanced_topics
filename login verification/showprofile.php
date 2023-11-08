@@ -11,8 +11,17 @@ session_start();
     <input type="email" name="email" placeholder="Type your email">
     <input type="password" name="password" placeholder="Type your Password">
     <input type="file" name="upload" value="Upload Image">
+    <select name='country'>
+        <option value='null'>Select a country</option>
+        <option value="Bangladesh">Bangladesh</option>
+        <option value='Canada'>Canada</option>
+        <option value='Rest of the world'>Rest of the world</option>
+    </select>
+    <input type="radio" name="gender" value="male">Male
+    <input type="radio" name="gender" value="female">Female
     <input type="submit" name="submit" value="submit">
     </form>
+    
     <h2>You can search for users here</h2>
     <form action="searchuser.php" method='post'>
     <input type="text" name="search" placeholder="Type your name">
@@ -33,7 +42,7 @@ if (isset($_SESSION["name"]) && isset($_SESSION["password"])) {
     if ($show_user) {
         echo "<h2>Stored profile information- </h2>";
         echo '<table border="1">';
-        echo '<tr><th>User ID</th><th>Profile picture</th><th>Username</th><th>Email</th><th>Action</th></tr>';
+        echo '<tr><th>User ID</th><th>Profile picture</th><th>Username</th><th>Email</th><th>Gender</th><th>Country</th><th>Action</th></tr>';
 
         while ($generated_row = mysqli_fetch_assoc($show_user)) {
             echo '<tr>';
@@ -41,6 +50,8 @@ if (isset($_SESSION["name"]) && isset($_SESSION["password"])) {
             echo '<td><img src="uploaded pictures/' . $generated_row['pro_pic'] . '" width="50px height=15px"></td>';
             echo '<td>' . $generated_row['user'] . '</td>';
             echo '<td>' . $generated_row['email'] . '</td>';
+            echo '<td>' . $generated_row['gender'] . '</td>';
+            echo '<td>' . $generated_row['country'] . '</td>';
             echo '<td> <a href="editform.php?edit_data=' . $generated_row['user_id'] . '" onclick="return confirm(\'Are you sure?\')">Edit data</a> || <a href="delete.php?id=' . $generated_row['user_id'] . '">Delete</a></td>';
 
        
