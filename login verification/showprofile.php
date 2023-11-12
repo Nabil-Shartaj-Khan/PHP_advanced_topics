@@ -1,39 +1,46 @@
 <?php
 require_once 'database.php';
 session_start();
+if (isset($_SESSION["admin_username"])) {
+    $ad_username = $_SESSION["admin_username"];
+    echo "<h2>Welcome Admin!</h2>";
+    echo "<br><br> Your Username is {$ad_username}";
 ?>
-
-<h2 style="text-align: center;">Upload your profile picture </h2>
-<form action="insertfile.php" method='post' enctype="multipart/form-data">
-    
-    <input type="text" name="name" placeholder="Type your name">
-    <input type="email" name="email" placeholder="Type your email">
-    <input type="password" name="password" placeholder="Type your Password">
-    <input type="file" name="upload" value="Upload Image">
-    <select name='country'>
-        <option value='null'>Select a country</option>
-        <option value="Bangladesh">Bangladesh</option>
-        <option value='Canada'>Canada</option>
-        <option value='Rest of the world'>Rest of the world</option>
-    </select>
-    <input type="radio" name="gender" value="male">Male
-    <input type="radio" name="gender" value="female">Female
-    <input type="submit" name="submit" value="submit">
+    <h2 style="text-align: center;">Upload your profile picture </h2>
+    <form action="insertfile.php" method='post' enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Type your name">
+        <input type="email" name="email" placeholder="Type your email">
+        <input type="password" name="password" placeholder="Type your Password">
+        <input type="file" name="upload" value="Upload Image">
+        <select name='country'>
+            <option value='null'>Select a country</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value='Canada'>Canada</option>
+            <option value='Rest of the world'>Rest of the world</option>
+        </select>
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="female">Female
+        <input type="submit" name="submit" value="submit">
     </form>
     
     <h2>You can search for users here</h2>
     <form action="searchuser.php" method='post'>
-    <input type="text" name="search" placeholder="Type your name">
-    <input type="submit" name="search_value" value="Search">
+        <input type="text" name="search" placeholder="Type your name">
+        <input type="submit" name="search_value" value="Search">
+    </form>
     
-   <br><br> <strong> You can<a href="logout.php"> Logout </a>here.</strong>
+    <br><br> <strong> You can<a href="logout.php"> Logout </a>here.</strong>
+    
+<?php
+} else {
+    echo "You are not authorized to view this page";
+}
+?>
 
 <?php
 
-if (isset($_SESSION["email"]) && isset($_SESSION["password"])) {
-    $email = $_SESSION["email"];
-    $password = $_SESSION['email'];  
-
+if (isset($_SESSION["admin_username"])) {
+    $ad_username = $_SESSION["admin_username"];
     $user_query = "SELECT * FROM `users`";
     $show_user = mysqli_query($connection, $user_query);
 

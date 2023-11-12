@@ -7,14 +7,20 @@ if (isset($_GET['edit_data'])){
 
     while ($row = mysqli_fetch_assoc($run_database)) {
 ?>
-    
+        
         <form action="dataupdate.php" method='post'>
-            <input type="text" name="name" value="<?php echo $row["user_id"]; ?>" placeholder="Type your name">
-            <input type="email" name="email" value="<?php echo $row["email"]; ?>"placeholder="Type your email">
-            <input type="password" name="password"value="<?php echo $row["password"]; ?>" placeholder="Type your Password">
+            <label>Input your name- </label>
+            <input type="text" name="name" value="<?php echo $row["user"]; ?>" placeholder="Type your name"><br>
+            <label>Input your email- </label>
+            <input type="email" name="email" value="<?php echo $row["email"]; ?>"placeholder="Type your email"><br>
+            <label>Input your password- </label>
+            <input type="password" name="password"value="<?php echo $row["password"]; ?>" placeholder="Type your Password"><br>
+            <label>Input your gender- </label>
+            <input type="gender" name="gender"value="<?php echo $row["gender"]; ?>" placeholder="Type your Gender"><br>
             <input type="submit" name="submit" value="Edit Data"> 
             <input type="hidden" name="hidden_id" value="<?php echo $user_id; ?>">
         </form>
+        
 
 <?php
     }

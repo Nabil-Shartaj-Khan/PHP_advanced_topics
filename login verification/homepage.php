@@ -22,6 +22,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["password"])) {
     <h1 style="text-align:center">You are here means you passed the password test</h1>
     <p style="text-align:center">Welcome to this page. Congratulations.</p>
 
+
     <form action="homepage.php" method="post" id='form'>
     <label>Logout here or checkout your profile page</label><br>
     <input type="submit" name="logout" value="logout" class="logout-button">
