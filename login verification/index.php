@@ -7,7 +7,6 @@ if (isset($_POST['submit'])){
     $password = $_POST['password'];
     $gender = $_POST['gender'];
     $country = $_POST['country'];
-    $password=password_hash($password,PASSWORD_DEFAULT);
     $user_query=  "INSERT INTO `users` (`user`, `password`, `gender`, `country`, `email`) VALUES ('$username', '$password', '$gender', '$country', '$email');";
 
     $result=mysqli_query($connection,$user_query);
@@ -47,7 +46,7 @@ if (isset($_POST['submit'])){
     <input type="radio" name="gender" value="female">Female
     <input type="submit" name="submit" value="submit"> 
 </form>
-<strong>Existing user? <a href="loginuser.php">LOGIN</a> here</strong>
+<strong>Existing user? or Admin? <a href="loginuser.php">LOGIN</a> here</strong>
 
 <?php
 if (isset($_REQUEST['success'])){

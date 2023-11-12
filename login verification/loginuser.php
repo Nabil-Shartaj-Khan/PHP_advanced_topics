@@ -14,6 +14,9 @@
     <input type="password" name="password" placeholder="Type your password">
     <input type="submit" name="login" value="login">
 </form>
+</form>
+<strong>Need to register? <a href="index.php">Register</a> here</strong>
+</html>
 </html>
 
 <?php

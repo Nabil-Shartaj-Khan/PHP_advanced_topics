@@ -3,7 +3,6 @@ require_once 'database.php';
 session_start();
 
 if (isset($_SESSION["email"]) && isset($_SESSION["password"])) {
-    
     $email = $_SESSION["email"];
     $password = $_SESSION['password'];
     $pass_message = "LOGIN successful";
